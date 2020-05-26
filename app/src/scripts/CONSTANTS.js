@@ -45,4 +45,4 @@ export const SPACE_BETWEEN_COMMUNITIES = 20;
 // Relocation
 export const RELOCATION_PROBABILITY = 0.00002;
 export const RELOCATION_ERROR_MARGIN = 20;
-export const RELOCATION_STEP_SIZE = 8;
+export const RELOCATION_STEP_SIZE = 1000;
