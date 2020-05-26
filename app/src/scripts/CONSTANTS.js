@@ -1,6 +1,6 @@
-export const INITIAL_SUSCEPTIBLE = 100;
+export const INITIAL_SUSCEPTIBLE = 1000;
 export const INITIAL_NONINFECTIOUS = 0;
-export const INITAL_INFECTIOUS = 120;
+export const INITAL_INFECTIOUS = 4;
 export const INITIAL_IMMUNE = 0;
 export const INITIAL_DEAD = 0;
 export const REPULSION_FORCE = 0;
@@ -22,7 +22,7 @@ export const MAX_INFECTIOUS_TIME = 10;
 export const MIN_TIME_UNTIL_DEAD = 15;
 export const MAX_TIME_UNTIL_DEAD = 30;
 
-export const DAYS_PER_SECOND = 2;
+export const DAYS_PER_SECOND = 1;
 
 export const COLORS = {
   SUSCEPTIBLE: '#05befc',
@@ -43,6 +43,6 @@ export const TYPES = {
 export const SPACE_BETWEEN_COMMUNITIES = 20;
 
 // Relocation
-export const RELOCATION_PROBABILITY = 0.0002;
+export const RELOCATION_PROBABILITY = 0.00002;
 export const RELOCATION_ERROR_MARGIN = 20;
-export const RELOCATION_STEP_SIZE = 80;
+export const RELOCATION_STEP_SIZE = 8;

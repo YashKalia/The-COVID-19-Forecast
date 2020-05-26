@@ -40,11 +40,12 @@ export default class RelocationUtil {
     const maxTotalPopulation = Math.round(
       (this.community.stats.sum() / this.community.numModels) * 1.5
     );
-    const exclude = Object.values(this.community.communities)
-      .filter((mod) => mod.totalPopulation > maxTotalPopulation)
-      .map((mod) => mod.id)
-      .concat([sourceId]);
-    // Destination Id
+    const exclude = []; 
+    // Object.values(this.community.communities)
+    //   .filter((mod) => mod.totalPopulation > maxTotalPopulation)
+    //   .map((mod) => mod.id)
+    //   .concat([sourceId]);
+    // // Destination Id
     const destId = getRandomIntExceptForValue(
       0,
       this.community.numModels - 1,
