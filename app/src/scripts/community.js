@@ -2,7 +2,7 @@ import wireSlidersToHandlers from './DOM/parameters';
 import Model from './model';
 import Stats from './data/stats';
 import Bounds from './data/bounds';
-import { SPACE_BETWEEN_COMMUNITIES } from './CONSTANTS';
+import { SPACE_BETWEEN_COMMUNITIES, TYPES } from './CONSTANTS';
 import RelocationUtil from './relocationUtil';
 
 export default class Community {
@@ -112,15 +112,17 @@ export default class Community {
       }));
 
     // TODO remove this and refactor person to get his own drawInfo
-    this.relocationUtil.relocations.forEach(({ person }) => {
-      allData.positions.push(person.x);
-      allData.positions.push(person.y);
-      allData.colors.push(parseInt(person.color.slice(1, 3), 16) / 255.0);
-      allData.colors.push(parseInt(person.color.slice(3, 5), 16) / 255.0);
-      allData.colors.push(parseInt(person.color.slice(5, 7), 16) / 255.0);
-      allData.colors.push(1);
-      allData.count++;
-    });
+    this.relocationUtil.relocations
+      .filter((re) => !re.person.isDead())
+      .forEach(({ person }) => {
+        allData.positions.push(person.x);
+        allData.positions.push(person.y);
+        allData.colors.push(parseInt(person.color.slice(1, 3), 16) / 255.0);
+        allData.colors.push(parseInt(person.color.slice(3, 5), 16) / 255.0);
+        allData.colors.push(parseInt(person.color.slice(5, 7), 16) / 255.0);
+        allData.colors.push(1);
+        allData.count++;
+      });
     this.agentView.draw(allData);
   }
 

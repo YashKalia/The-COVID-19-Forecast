@@ -43,6 +43,10 @@ export default class Person {
     else if (type === TYPES.IMMUNE) this.color = COLORS.IMMUNE;
   }
 
+  isDead() {
+    return this.type === TYPES.DEAD;
+  }
+
   applyForce(forceX, forceY) {
     this.accX += forceX; // Plus symbol because we're adding forces together
     this.accY += forceY;
