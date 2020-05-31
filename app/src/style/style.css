@@ -41,8 +41,9 @@ body {
 
 /* Styling the canvas which overlaps the model canvas so that borders computed in Model.js constructor can be added on top of the communities.  */
 #BorderCanvas{
-  position: relative;
-  left:-600px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 
@@ -53,21 +54,19 @@ button {
 }
 
 #glcanvas-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 55vw;
   height: 80vh;
   position: relative;
   top:50px;
-  left:300px;
-
+  right: 0px;
 }
 
 #glcanvas {
+  position: absolute;
   background: #d9d9d9;
   border: white 4px solid;
-  right: 30px;
+  top: 0px;
+  left: 0px;
 }
 
 #sliderDIV {
