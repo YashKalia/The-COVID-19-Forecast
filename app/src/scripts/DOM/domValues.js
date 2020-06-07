@@ -173,7 +173,10 @@ export function setMaxInfectiousTime(newValue) {
 
 // updateMinTimeUntilDead
 export function getMinTimeUntilDead() {
-  return parseFloat(document.getElementById('minTimeUntilDead').value, 10);
+  return parseFloat(
+    document.getElementById('timeUntilDeadSliderMinOut').value,
+    10
+  );
 }
 
 // TODO
@@ -184,7 +187,10 @@ export function setMinTimeUntilDead(newValue) {
 
 // updateMaxTimeUntilDead
 export function getMaxTimeUntilDead() {
-  return parseFloat(document.getElementById('maxTimeUntilDead').value, 10);
+  return parseFloat(
+    document.getElementById('timeUntilDeadSliderMaxOut').value,
+    10
+  );
 }
 
 // TODO

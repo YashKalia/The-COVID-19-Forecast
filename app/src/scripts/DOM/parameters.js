@@ -71,6 +71,7 @@ export function createDualSliders(
 
   document.getElementById(outMinId).value = min;
   document.getElementById(outMaxId).value = max;
+  return slider;
 }
 
 // The outValOp is for percentages, we can pass a function that will multiply a fraction by 100 for displaying to user
@@ -140,22 +141,6 @@ export default function (model) {
     model.updateMaxIncubationTime.bind(model)
   );
 
-  // wireInput(
-  //   'minInfectiousTime',
-  //   'minInfectiousTimeOut',
-  //   MIN_INFECTIOUS_TIME,
-  //   'days',
-  //   model.updateMinInfectiousTime.bind(model)
-  // );
-  // // timeUntilImmune
-  // wireInput(
-  //   'maxInfectiousTime',
-  //   'maxInfectiousTimeOut',
-  //   MAX_INFECTIOUS_TIME,
-  //   'days',
-  //   model.updateMaxInfectiousTime.bind(model)
-  // );
-
   // infectious time
   createDualSliders(
     'infectiousTimeSlider',
@@ -167,21 +152,17 @@ export default function (model) {
     model.updateMaxInfectiousTime.bind(model)
   );
 
-  wireInput(
-    'minTimeUntilDead',
-    'minTimeUntilDeadOut',
+  // Time until dead
+  createDualSliders(
+    'timeUntilDeadSlider',
+    'timeUntilDeadSliderMinOut',
+    'timeUntilDeadSliderMaxOut',
     MIN_TIME_UNTIL_DEAD,
-    'days',
-    model.updateMinTimeUntilDead.bind(model)
-  );
-  // timeUntilImmune
-  wireInput(
-    'maxTimeUntilDead',
-    'maxTimeUntilDeadOut',
     MAX_TIME_UNTIL_DEAD,
-    'days',
+    model.updateMinTimeUntilDead.bind(model),
     model.updateMaxTimeUntilDead.bind(model)
   );
+
   // Infection radius
   wireInput(
     'infectionCircleRadius',
@@ -191,17 +172,6 @@ export default function (model) {
     model.updateInfectionRadius.bind(model)
   );
 
-  // const PERSON_RADIUS=5
-  // agentRadius
-  // wireInput(
-  //   'agentRadius',
-  //   'agentRadiusOut',
-  //   PERSON_RADIUS,
-  //   '',
-  //   community.updateAgentSize.bind(community)
-  // );
-
-  // agentRadius
   wireInput(
     'repulsionForce',
     'repulsionForceOut',
