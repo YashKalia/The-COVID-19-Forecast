@@ -117,7 +117,10 @@ export function setNonInToImmuneProb(newValue) {
 
 // updateMinIncubationTime
 export function getMinIncubationTime() {
-  return parseFloat(document.getElementById('minIncubationTime').value, 10);
+  return parseFloat(
+    document.getElementById('incubationTimeSliderMinOut').value,
+    10
+  );
 }
 
 // TODO
@@ -128,7 +131,10 @@ export function setMinIncubationTime(newValue) {
 
 // updateMaxIncubationTime
 export function getMaxIncubationTime() {
-  return parseFloat(document.getElementById('maxIncubationTime').value, 10);
+  return parseFloat(
+    document.getElementById('incubationTimeSliderMaxOut').value,
+    10
+  );
 }
 
 // TODO
@@ -139,7 +145,10 @@ export function setMaxIncubationTime(newValue) {
 
 // updateMinInfectiousTime
 export function getMinInfectiousTime() {
-  return parseFloat(document.getElementById('minInfectiousTime').value, 10);
+  return parseFloat(
+    document.getElementById('infectiousTimeSliderMinOut').value,
+    10
+  );
 }
 
 // TODO
@@ -150,7 +159,10 @@ export function setMinInfectiousTime(newValue) {
 
 // updateMaxInfectiousTime
 export function getMaxInfectiousTime() {
-  return parseFloat(document.getElementById('maxInfectiousTime').value, 10);
+  return parseFloat(
+    document.getElementById('infectiousTimeSliderMaxOut').value,
+    10
+  );
 }
 
 // TODO

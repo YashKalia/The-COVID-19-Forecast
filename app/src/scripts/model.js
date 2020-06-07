@@ -42,6 +42,8 @@ export default class Model {
     updateDemographicChart,
     borderCtx
   ) {
+    wireSlidersToHandlers(this);
+
     this.spaceBetweenCommunities = SPACE_BETWEEN_COMMUNITIES;
     this.numCommunities = numCommunities;
     this.communities = {};
@@ -185,7 +187,6 @@ export default class Model {
    * A function to start execution of the model.
    */
   run() {
-    wireSlidersToHandlers(this);
     this.populateCommunities();
 
     this.updateAgentSize(this.getAgentSize(this.stats.sum()));

@@ -1,4 +1,7 @@
 /* eslint-disable no-shadow */
+import wNumb from 'wnumb';
+import noUiSlider from 'nouislider';
+import 'nouislider/distribute/nouislider.css'; // Import styles
 import presetsManager from '../presetsManager';
 import {
   setInitialNumInfectious,
@@ -33,6 +36,42 @@ const {
   ATTRACTION_FORCE,
   NUM_COMMUNITIES,
 } = presetsManager.loadPreset();
+
+export function createDualSliders(
+  id,
+  outMinId,
+  outMaxId,
+  min,
+  max,
+  minSetter,
+  maxSetter
+) {
+  const incubationTimeSlider = document.getElementById(id);
+  const slider = noUiSlider.create(incubationTimeSlider, {
+    range: {
+      min: min,
+      max: max,
+    },
+    format: wNumb({
+      decimals: '0',
+    }),
+    tooltips: [true, true],
+    connect: true,
+    start: [min, max],
+  });
+
+  slider.on('change', (values) => {
+    const minVal = parseInt(values[0], 10);
+    const maxVal = parseInt(values[1], 10);
+    document.getElementById(outMinId).value = minVal;
+    document.getElementById(outMaxId).value = maxVal;
+    minSetter(minVal);
+    maxSetter(maxVal);
+  });
+
+  document.getElementById(outMinId).value = min;
+  document.getElementById(outMaxId).value = max;
+}
 
 // The outValOp is for percentages, we can pass a function that will multiply a fraction by 100 for displaying to user
 // Otherwise the default is just a function that returns the variable itself
@@ -69,16 +108,16 @@ function wireInput(
 /**
  * A function binding the sliders to a specific model.
  *
- * @param {Model} community The model to bind the sliders to.
+ * @param {Model} model The model to bind the sliders to.
  */
-export default function (community) {
+export default function (model) {
   // TimeToSymptoms
   wireInput(
     'transmissionProb',
     'transmissionProbOut',
     TRANSMISSION_PROB,
     '%',
-    community.updateTransmissionProb.bind(community),
+    model.updateTransmissionProb.bind(model),
     (x) => x * 100
   );
   wireInput(
@@ -86,47 +125,54 @@ export default function (community) {
     'nonInToImmuneProbOut',
     NONIN_TO_IMMUNE_PROB,
     '%',
-    community.updateNonInToImmuneProb.bind(community),
+    model.updateNonInToImmuneProb.bind(model),
     (x) => x * 100
   );
 
-  // timeUntilImmune
-  wireInput(
-    'minIncubationTime',
-    'minIncubationTimeOut',
+  // incubation time
+  createDualSliders(
+    'incubationTimeSlider',
+    'incubationTimeSliderMinOut',
+    'incubationTimeSliderMaxOut',
     MIN_INCUBATION_TIME,
-    'days',
-    community.updateMinIncubationTime.bind(community)
-  );
-  // timeUntilImmune
-  wireInput(
-    'maxIncubationTime',
-    'maxIncubationTimeOut',
     MAX_INCUBATION_TIME,
-    'days',
-    community.updateMaxIncubationTime.bind(community)
+    model.updateMinIncubationTime.bind(model),
+    model.updateMaxIncubationTime.bind(model)
   );
-  wireInput(
-    'minInfectiousTime',
-    'minInfectiousTimeOut',
+
+  // wireInput(
+  //   'minInfectiousTime',
+  //   'minInfectiousTimeOut',
+  //   MIN_INFECTIOUS_TIME,
+  //   'days',
+  //   model.updateMinInfectiousTime.bind(model)
+  // );
+  // // timeUntilImmune
+  // wireInput(
+  //   'maxInfectiousTime',
+  //   'maxInfectiousTimeOut',
+  //   MAX_INFECTIOUS_TIME,
+  //   'days',
+  //   model.updateMaxInfectiousTime.bind(model)
+  // );
+
+  // infectious time
+  createDualSliders(
+    'infectiousTimeSlider',
+    'infectiousTimeSliderMinOut',
+    'infectiousTimeSliderMaxOut',
     MIN_INFECTIOUS_TIME,
-    'days',
-    community.updateMinInfectiousTime.bind(community)
-  );
-  // timeUntilImmune
-  wireInput(
-    'maxInfectiousTime',
-    'maxInfectiousTimeOut',
     MAX_INFECTIOUS_TIME,
-    'days',
-    community.updateMaxInfectiousTime.bind(community)
+    model.updateMinInfectiousTime.bind(model),
+    model.updateMaxInfectiousTime.bind(model)
   );
+
   wireInput(
     'minTimeUntilDead',
     'minTimeUntilDeadOut',
     MIN_TIME_UNTIL_DEAD,
     'days',
-    community.updateMinTimeUntilDead.bind(community)
+    model.updateMinTimeUntilDead.bind(model)
   );
   // timeUntilImmune
   wireInput(
@@ -134,7 +180,7 @@ export default function (community) {
     'maxTimeUntilDeadOut',
     MAX_TIME_UNTIL_DEAD,
     'days',
-    community.updateMaxTimeUntilDead.bind(community)
+    model.updateMaxTimeUntilDead.bind(model)
   );
   // Infection radius
   wireInput(
@@ -142,7 +188,7 @@ export default function (community) {
     'infectionRadiusOut',
     INFECTION_RADIUS,
     'people',
-    community.updateInfectionRadius.bind(community)
+    model.updateInfectionRadius.bind(model)
   );
 
   // const PERSON_RADIUS=5
@@ -161,7 +207,7 @@ export default function (community) {
     'repulsionForceOut',
     REPULSION_FORCE,
     '%',
-    community.updateRepulsionForce.bind(community),
+    model.updateRepulsionForce.bind(model),
     (x) => x * 100
   );
 
@@ -170,7 +216,7 @@ export default function (community) {
     'attractionForceOut',
     ATTRACTION_FORCE,
     '%',
-    community.updateAttractionToCenter.bind(community),
+    model.updateAttractionToCenter.bind(model),
     (x) => x * 100
   );
 

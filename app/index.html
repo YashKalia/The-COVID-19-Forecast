@@ -121,93 +121,19 @@
             </div>
           </div> -->
 
-          <div class="row">
-            <div class="col-sm">
-              <p>
-                Minimum incubation time
-              </p>
-              <input
-                type="range"
-                min="1"
-                max="7"
-                value="7"
-                step="1"
-                class="slider"
-                id="minIncubationTime"
-              />
-              <div class="outputContainer">
-                <output id="minIncubationTimeOut" for="minIncubationTime"
-                  >7 days</output
-                >
-              </div>
-            </div>
+          <div class="slider-title">Incubation time</div>
+          <div class="slider-container">
+            <div class="new-slider" id="incubationTimeSlider"></div>
           </div>
+          <input type="hidden" id="incubationTimeSliderMinOut" />
+          <input type="hidden" id="incubationTimeSliderMaxOut" />
 
-          <div class="row">
-            <div class="col-sm">
-              <p>
-                Maxmimum incubation time
-              </p>
-              <input
-                type="range"
-                min="8"
-                max="14"
-                value="14"
-                step="1"
-                class="slider"
-                id="maxIncubationTime"
-              />
-              <div class="outputContainer">
-                <output id="maxIncubationTimeOut" for="maxIncubationTime"
-                  >14 days</output
-                >
-              </div>
-            </div>
+          <div class="slider-title">Infectious time</div>
+          <div class="slider-container">
+            <div class="new-slider" id="infectiousTimeSlider"></div>
           </div>
-
-          <div class="row">
-            <div class="col-sm">
-              <p>
-                Minimum time a patient is infectious
-              </p>
-              <input
-                type="range"
-                min="1"
-                max="6"
-                value="5"
-                step="1"
-                class="slider"
-                id="minInfectiousTime"
-              />
-              <div class="outputContainer">
-                <output id="minInfectiousTimeOut" for="minInfectiousTime"
-                  >5 days</output
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm">
-              <p>
-                Maximum time a patient is infectious
-              </p>
-              <input
-                type="range"
-                min="7"
-                max="11"
-                value="10"
-                step="1"
-                class="slider"
-                id="maxInfectiousTime"
-              />
-              <div class="outputContainer">
-                <output id="maxInfectiousTimeOut" for="maxInfectiousTime"
-                  >10 days</output
-                >
-              </div>
-            </div>
-          </div>
+          <input type="hidden" id="infectiousTimeSliderMinOut" />
+          <input type="hidden" id="infectiousTimeSliderMaxOut" />
 
           <div class="row">
             <div class="col-sm">

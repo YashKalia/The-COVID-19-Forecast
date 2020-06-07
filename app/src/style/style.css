@@ -261,3 +261,21 @@ h3 {
 .preset-panel {
   flex-direction: row;
 }
+
+.slider-title {
+  margin-bottom: 50px;
+  font-size: 1.3rem;
+  font-style: bold;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-slider {
+  width: 90%;
+}
