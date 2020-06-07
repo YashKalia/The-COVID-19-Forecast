@@ -125,8 +125,8 @@ export function getMinIncubationTime() {
 
 // TODO
 export function setMinIncubationTime(newValue) {
-  document.getElementById('minIncubationTime').value = newValue;
-  document.getElementById('minIncubationTimeOut').value = newValue;
+  // document.getElementById('minIncubationTime').value = newValue;
+  document.getElementById('incubationTimeSliderMinOut').value = newValue;
 }
 
 // updateMaxIncubationTime
@@ -139,8 +139,8 @@ export function getMaxIncubationTime() {
 
 // TODO
 export function setMaxIncubationTime(newValue) {
-  document.getElementById('maxIncubationTime').value = newValue;
-  document.getElementById('maxIncubationTimeOut').value = newValue;
+  // document.getElementById('maxIncubationTime').value = newValue;
+  document.getElementById('incubationTimeSliderMaxOut').value = newValue;
 }
 
 // updateMinInfectiousTime
@@ -153,7 +153,7 @@ export function getMinInfectiousTime() {
 
 // TODO
 export function setMinInfectiousTime(newValue) {
-  document.getElementById('minInfectiousTime').value = newValue;
+  // document.getElementById('minInfectiousTime').value = newValue;
   document.getElementById('minInfectiousTimeOut').value = newValue;
 }
 
@@ -167,8 +167,8 @@ export function getMaxInfectiousTime() {
 
 // TODO
 export function setMaxInfectiousTime(newValue) {
-  document.getElementById('maxInfectiousTime').value = newValue;
-  document.getElementById('minInfectiousTimeOut').value = newValue;
+  // document.getElementById('maxInfectiousTime').value = newValue;
+  document.getElementById('infectiousTimeSliderMaxOut').value = newValue;
 }
 
 // updateMinTimeUntilDead
@@ -181,8 +181,8 @@ export function getMinTimeUntilDead() {
 
 // TODO
 export function setMinTimeUntilDead(newValue) {
-  document.getElementById('minTimeUntilDead').value = newValue;
-  document.getElementById('minTimeUntilDeadOut').value = newValue;
+  // document.getElementById('minTimeUntilDead').value = newValue;
+  document.getElementById('timeUntilDeadSliderMinOut').value = newValue;
 }
 
 // updateMaxTimeUntilDead
