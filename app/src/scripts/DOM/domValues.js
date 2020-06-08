@@ -92,7 +92,6 @@ export function setAttractionToCenter(newValue) {
     .noUiSlider.set([newValue * 10]);
 }
 
-// updateTransmissionProb
 export function getTransmissionProbability() {
   return (
     document.getElementById('transmissionProbabilitySlider').noUiSlider.get() /
@@ -100,7 +99,6 @@ export function getTransmissionProbability() {
   );
 }
 
-// TODO
 export function setTransmissionProbability(newValue) {
   document
     .getElementById('transmissionProbabilitySlider')
@@ -109,12 +107,15 @@ export function setTransmissionProbability(newValue) {
 
 // updateNonInToImmuneProb
 export function getNonInToImmuneProb() {
-  return parseFloat(document.getElementById('nonInToImmuneProb').value, 10);
+  return (
+    document.getElementById('nonInToImmuneProbSlider').noUiSlider.get() / 10
+  );
 }
 
-// TODO
 export function setNonInToImmuneProb(newValue) {
-  document.getElementById('nonInToImmuneProb').value = newValue;
+  document
+    .getElementById('nonInToImmuneProbSlider')
+    .noUiSlider.set([newValue * 10]);
   // document.getElementById('transmissionProbOut').value = newValue; TODO what the hell
 }
 

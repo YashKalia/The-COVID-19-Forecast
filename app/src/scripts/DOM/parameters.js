@@ -133,14 +133,21 @@ export default function (model) {
     (val) => model.updateTransmissionProb(val / 10)
   );
 
-  wireInput(
-    'nonInToImmuneProb',
-    'nonInToImmuneProbOut',
+  createSingleSlider(
+    'nonInToImmuneProbSlider',
     NONIN_TO_IMMUNE_PROB,
-    '%',
-    model.updateNonInToImmuneProb.bind(model),
-    (x) => x * 100
+    0,
+    10,
+    (val) => model.updateNonInToImmuneProb(val / 10)
   );
+  // wireInput(
+  //   'nonInToImmuneProb',
+  //   'nonInToImmuneProbOut',
+  //   NONIN_TO_IMMUNE_PROB,
+  //   '%',
+  //   model.updateNonInToImmuneProb.bind(model),
+  //   (x) => x * 100
+  // );
 
   // incubation time
   createDualSliders(
