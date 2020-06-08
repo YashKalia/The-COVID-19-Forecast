@@ -74,12 +74,9 @@ export function updateTheStatistics(
 }
 
 export function getRepulsionForce() {
-  return Math.round(
-    document.getElementById('repulsionForceSlider').noUiSlider.get()
-  );
+  return document.getElementById('repulsionForceSlider').noUiSlider.get();
 }
 
-// TODO
 export function setRepulsionForce(newValue) {
   document
     .getElementById('repulsionForceSlider')
@@ -87,13 +84,12 @@ export function setRepulsionForce(newValue) {
 }
 
 export function getAttractionToCenter() {
-  return parseFloat(document.getElementById('attractionForce').value, 10);
+  return document.getElementById('attractionForceSlider').noUiSlider.get();
 }
-
-// TODO
 export function setAttractionToCenter(newValue) {
-  document.getElementById('attractionForce').value = newValue;
-  document.getElementById('attractionForceOut').value = newValue;
+  document
+    .getElementById('attractionForceSlider')
+    .noUiSlider.set([newValue * 10]);
 }
 
 // updateTransmissionProb

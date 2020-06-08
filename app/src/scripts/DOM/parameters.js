@@ -36,7 +36,9 @@ const {
 } = presetsManager.loadPreset();
 
 export function createSingleSlider(id, start, min, max, setter) {
+  console.log(id);
   const sliderElem = document.getElementById(id);
+  console.log(sliderElem);
   const slider = noUiSlider.create(sliderElem, {
     range: {
       min: min,
@@ -180,22 +182,8 @@ export default function (model) {
     model.updateRepulsionForce(val / 10)
   );
 
-  // wireInput(
-  //   'repulsionForce',
-  //   'repulsionForceOut',
-  //   REPULSION_FORCE,
-  //   '%',
-  //   model.updateRepulsionForce.bind(model),
-  //   (x) => x * 100
-  // );
-
-  wireInput(
-    'attractionForce',
-    'attractionForceOut',
-    ATTRACTION_FORCE,
-    '%',
-    model.updateAttractionToCenter.bind(model),
-    (x) => x * 100
+  createSingleSlider('attractionForceSlider', ATTRACTION_FORCE, 0, 10, (val) =>
+    model.updateAttractionToCenter(val / 10)
   );
 
   // initial number of susceptibles
