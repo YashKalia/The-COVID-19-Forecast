@@ -9,12 +9,9 @@ import {
   getAttractionToCenter,
   getRepulsionForce,
   getNonInToImmuneProb,
-  getMinIncubationTime,
-  getMaxIncubationTime,
-  getMinInfectiousTime,
-  getMaxInfectiousTime,
-  getMinTimeUntilDead,
-  getMaxTimeUntilDead,
+  getIncubationTimeMinAndMax,
+  getInfectiousTimeMinAndMax,
+  getTimeUntilDeadMinAndMax,
   getInfectionRadius,
 } from './DOM/domValues';
 
@@ -322,12 +319,26 @@ export default class Model {
         this.updateAttractionToCenter(getAttractionToCenter());
         this.updateRepulsionForce(getRepulsionForce());
         this.updateNonInToImmuneProb(getNonInToImmuneProb());
-        this.updateMinIncubationTime(getMinIncubationTime());
-        this.updateMaxIncubationTime(getMaxIncubationTime());
-        this.updateMinInfectiousTime(getMinInfectiousTime());
-        this.updateMaxInfectiousTime(getMaxInfectiousTime());
-        this.updateMinTimeUntilDead(getMinTimeUntilDead());
-        this.updateMaxTimeUntilDead(getMaxTimeUntilDead());
+
+        // dual sliders
+        const [
+          minIncubationTime,
+          maxIncubationTime,
+        ] = getIncubationTimeMinAndMax();
+        this.updateMinIncubationTime(minIncubationTime);
+        this.updateMaxIncubationTime(maxIncubationTime);
+        const [
+          minInfectiousTime,
+          maxInfectiousTime,
+        ] = getInfectiousTimeMinAndMax();
+        this.updateMinInfectiousTime(minInfectiousTime);
+        this.updateMaxInfectiousTime(maxInfectiousTime);
+        const [
+          minTimeTuntilDead,
+          maxTimeUntilDead,
+        ] = getTimeUntilDeadMinAndMax();
+        this.updateMinTimeUntilDead(minTimeTuntilDead);
+        this.updateMaxTimeUntilDead(maxTimeUntilDead);
         this.updateInfectionRadius(getInfectionRadius());
       }
 

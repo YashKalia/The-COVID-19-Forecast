@@ -11,12 +11,9 @@ import {
   setRepulsionForce,
   setTransmissionProbability,
   setNonInToImmuneProb,
-  setMinIncubationTime,
-  setMaxIncubationTime,
-  setMinInfectiousTime,
-  setMaxInfectiousTime,
-  setMinTimeUntilDead,
-  setMaxTimeUntilDead,
+  setIncubationTime,
+  setInfectiousTime,
+  setTimeUntilDead,
   setInfectionRadius,
 } from './domValues';
 
@@ -37,15 +34,7 @@ const {
   NUM_COMMUNITIES,
 } = presetsManager.loadPreset();
 
-export function createDualSliders(
-  id,
-  outMinId,
-  outMaxId,
-  min,
-  max,
-  minSetter,
-  maxSetter
-) {
+export function createDualSliders(id, min, max, minSetter, maxSetter) {
   const incubationTimeSlider = document.getElementById(id);
   const slider = noUiSlider.create(incubationTimeSlider, {
     range: {
@@ -63,14 +52,10 @@ export function createDualSliders(
   slider.on('change', (values) => {
     const minVal = parseInt(values[0], 10);
     const maxVal = parseInt(values[1], 10);
-    document.getElementById(outMinId).value = minVal;
-    document.getElementById(outMaxId).value = maxVal;
     minSetter(minVal);
     maxSetter(maxVal);
   });
 
-  document.getElementById(outMinId).value = min;
-  document.getElementById(outMaxId).value = max;
   return slider;
 }
 
@@ -133,8 +118,6 @@ export default function (model) {
   // incubation time
   createDualSliders(
     'incubationTimeSlider',
-    'incubationTimeSliderMinOut',
-    'incubationTimeSliderMaxOut',
     MIN_INCUBATION_TIME,
     MAX_INCUBATION_TIME,
     model.updateMinIncubationTime.bind(model),
@@ -144,8 +127,6 @@ export default function (model) {
   // infectious time
   createDualSliders(
     'infectiousTimeSlider',
-    'infectiousTimeSliderMinOut',
-    'infectiousTimeSliderMaxOut',
     MIN_INFECTIOUS_TIME,
     MAX_INFECTIOUS_TIME,
     model.updateMinInfectiousTime.bind(model),
@@ -155,8 +136,6 @@ export default function (model) {
   // Time until dead
   createDualSliders(
     'timeUntilDeadSlider',
-    'timeUntilDeadSliderMinOut',
-    'timeUntilDeadSliderMaxOut',
     MIN_TIME_UNTIL_DEAD,
     MAX_TIME_UNTIL_DEAD,
     model.updateMinTimeUntilDead.bind(model),
@@ -260,12 +239,9 @@ export function wireReloadPresetToMain(main) {
     setRepulsionForce(REPULSION_FORCE);
     setTransmissionProbability(TRANSMISSION_PROB);
     setNonInToImmuneProb(NONIN_TO_IMMUNE_PROB);
-    setMinIncubationTime(MIN_INCUBATION_TIME);
-    setMaxIncubationTime(MAX_INCUBATION_TIME);
-    setMinInfectiousTime(MIN_INFECTIOUS_TIME);
-    setMaxInfectiousTime(MAX_INFECTIOUS_TIME);
-    setMinTimeUntilDead(MIN_TIME_UNTIL_DEAD);
-    setMaxTimeUntilDead(MAX_TIME_UNTIL_DEAD);
+    setIncubationTime(MIN_INCUBATION_TIME, MAX_INCUBATION_TIME);
+    setInfectiousTime(MIN_INFECTIOUS_TIME, MAX_INFECTIOUS_TIME);
+    setTimeUntilDead(MIN_TIME_UNTIL_DEAD, MAX_TIME_UNTIL_DEAD);
     setInfectionRadius(INFECTION_RADIUS);
 
     main.changePreset();
