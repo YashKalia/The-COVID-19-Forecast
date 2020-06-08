@@ -84,7 +84,7 @@ export function setRepulsionForce(newValue) {
 }
 
 export function getAttractionToCenter() {
-  return document.getElementById('attractionForceSlider').noUiSlider.get();
+  return document.getElementById('attractionForceSlider').noUiSlider.get() / 10;
 }
 export function setAttractionToCenter(newValue) {
   document
@@ -94,13 +94,17 @@ export function setAttractionToCenter(newValue) {
 
 // updateTransmissionProb
 export function getTransmissionProbability() {
-  return parseFloat(document.getElementById('transmissionProb').value, 10);
+  return (
+    document.getElementById('transmissionProbabilitySlider').noUiSlider.get() /
+    10
+  );
 }
 
 // TODO
 export function setTransmissionProbability(newValue) {
-  document.getElementById('transmissionProb').value = newValue;
-  document.getElementById('transmissionProbOut').value = newValue;
+  document
+    .getElementById('transmissionProbabilitySlider')
+    .noUiSlider.set([newValue * 10]);
 }
 
 // updateNonInToImmuneProb
@@ -111,7 +115,7 @@ export function getNonInToImmuneProb() {
 // TODO
 export function setNonInToImmuneProb(newValue) {
   document.getElementById('nonInToImmuneProb').value = newValue;
-  document.getElementById('transmissionProbOut').value = newValue;
+  // document.getElementById('transmissionProbOut').value = newValue; TODO what the hell
 }
 
 // updateInfectionRadius

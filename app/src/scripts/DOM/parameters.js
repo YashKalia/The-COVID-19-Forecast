@@ -124,15 +124,15 @@ function wireInput(
  * @param {Model} model The model to bind the sliders to.
  */
 export default function (model) {
-  // TimeToSymptoms
-  wireInput(
-    'transmissionProb',
-    'transmissionProbOut',
+  // TimeoSymptoms
+  createSingleSlider(
+    'transmissionProbabilitySlider',
     TRANSMISSION_PROB,
-    '%',
-    model.updateTransmissionProb.bind(model),
-    (x) => x * 100
+    0,
+    10,
+    (val) => model.updateTransmissionProb(val / 10)
   );
+
   wireInput(
     'nonInToImmuneProb',
     'nonInToImmuneProbOut',
