@@ -154,14 +154,3 @@ export function getTimeUntilDeadMinAndMax(min, max) {
 export function setTimeUntilDead(min, max) {
   document.getElementById('timeUntilDeadSlider').noUiSlider.set([min, max]);
 }
-
-export function createPresetsDropDown() {
-  const options = `
-  <option value="0">Select preset:</option>
-  ${Object.keys(PRESET_TYPES).map(
-    (key) => `<option value="${key}">${PRESET_TYPES[key]}</option>`
-  )}
-  `;
-
-  document.getElementById('preset-list').innerHTML = options;
-}

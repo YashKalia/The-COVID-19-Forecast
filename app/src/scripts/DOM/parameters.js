@@ -16,6 +16,7 @@ import {
   setTimeUntilDead,
   setInfectionRadius,
 } from './domValues';
+import { PRESET_TYPES } from '../CONSTANTS';
 
 const {
   TRANSMISSION_PROB,
@@ -246,4 +247,15 @@ export function wireReloadPresetToMain(main) {
 
     main.changePreset();
   });
+}
+
+export function createPresetsDropDown() {
+  const options = `
+  <option value="0">Select preset:</option>
+  ${Object.keys(PRESET_TYPES).map(
+    (key) => `<option value="${key}">${PRESET_TYPES[key]}</option>`
+  )}
+  `;
+
+  document.getElementById('preset-list').innerHTML = options;
 }

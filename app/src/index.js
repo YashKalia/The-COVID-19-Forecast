@@ -1,6 +1,6 @@
 import presetManager from './scripts/presetsManager';
 import Main from './scripts/main';
-import { createPresetsDropDown } from './scripts/DOM/domValues';
+import { createPresetsDropDown } from './scripts/DOM/parameters';
 
 const {
   INITIAL_SUSCEPTIBLE,
