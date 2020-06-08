@@ -73,6 +73,19 @@ export function updateTheStatistics(
   document.getElementById('s5').innerHTML = `${numDead}`;
 }
 
+export function getRepulsionForce() {
+  return Math.round(
+    document.getElementById('repulsionForceSlider').noUiSlider.get()
+  );
+}
+
+// TODO
+export function setRepulsionForce(newValue) {
+  document
+    .getElementById('repulsionForceSlider')
+    .noUiSlider.set([newValue * 10]);
+}
+
 export function getAttractionToCenter() {
   return parseFloat(document.getElementById('attractionForce').value, 10);
 }
@@ -81,16 +94,6 @@ export function getAttractionToCenter() {
 export function setAttractionToCenter(newValue) {
   document.getElementById('attractionForce').value = newValue;
   document.getElementById('attractionForceOut').value = newValue;
-}
-
-export function getRepulsionForce() {
-  return parseFloat(document.getElementById('repulsionForce').value, 10);
-}
-
-// TODO
-export function setRepulsionForce(newValue) {
-  document.getElementById('repulsionForce').value = newValue;
-  document.getElementById('repulsionForceOut').value = newValue;
 }
 
 // updateTransmissionProb

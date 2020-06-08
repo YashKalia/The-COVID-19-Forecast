@@ -35,9 +35,33 @@ const {
   NUM_COMMUNITIES,
 } = presetsManager.loadPreset();
 
+export function createSingleSlider(id, start, min, max, setter) {
+  const sliderElem = document.getElementById(id);
+  const slider = noUiSlider.create(sliderElem, {
+    range: {
+      min: min,
+      max: max,
+    },
+    format: wNumb({
+      decimals: '0',
+    }),
+    tooltips: [true],
+    connect: true,
+    start: [start],
+  });
+
+  slider.on('change', (values) => {
+    console.log(values);
+    const val = parseInt(values[0], 10);
+    setter(val);
+  });
+
+  return slider;
+}
+
 export function createDualSliders(id, min, max, minSetter, maxSetter) {
-  const incubationTimeSlider = document.getElementById(id);
-  const slider = noUiSlider.create(incubationTimeSlider, {
+  const sliderElem = document.getElementById(id);
+  const slider = noUiSlider.create(sliderElem, {
     range: {
       min: min,
       max: max,
@@ -152,14 +176,18 @@ export default function (model) {
     model.updateInfectionRadius.bind(model)
   );
 
-  wireInput(
-    'repulsionForce',
-    'repulsionForceOut',
-    REPULSION_FORCE,
-    '%',
-    model.updateRepulsionForce.bind(model),
-    (x) => x * 100
+  createSingleSlider('repulsionForceSlider', REPULSION_FORCE, 0, 10, (val) =>
+    model.updateRepulsionForce(val / 10)
   );
+
+  // wireInput(
+  //   'repulsionForce',
+  //   'repulsionForceOut',
+  //   REPULSION_FORCE,
+  //   '%',
+  //   model.updateRepulsionForce.bind(model),
+  //   (x) => x * 100
+  // );
 
   wireInput(
     'attractionForce',

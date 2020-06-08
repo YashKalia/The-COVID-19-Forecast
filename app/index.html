@@ -29,21 +29,9 @@
 
         <button class="accordion">Interaction Parameters</button>
         <div class="panel">
-          <div class="col-sm">
-            <p>Social Distancing:</p>
-            <input
-              type="range"
-              min="0"
-              max="1"
-              value="0"
-              step="0.05"
-              class="slider"
-              id="repulsionForce"
-            />
-            <div class="outputContainer">
-              <output id="repulsionForceOut" for="repulsionForce">0</output>
-            </div>
-            <!-- <input type="number" id="initSusceptibleCount" name="initSusceptibleCount" min="100" max="500" value="100"> -->
+          <div class="slider-title">Social Distancing</div>
+          <div class="slider-container">
+            <div class="new-slider" id="repulsionForceSlider"></div>
           </div>
           <div class="col-sm">
             <p>Attraction:</p>
