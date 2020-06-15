@@ -1,6 +1,7 @@
 /* eslint-disable import/first */
 require('seedrandom')('hi.', { global: true });
 
+import './scripts/DOM/sideMenu';
 import presetManager from './scripts/presetsManager';
 import Main from './scripts/main';
 import {

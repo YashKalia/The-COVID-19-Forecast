@@ -8,22 +8,16 @@
 
   <body id="mainPage">
     <div class="headerMenu">
-      <div class="headerElement l" style="background-color: #bbb;">
-        <span
-          style="font-size: 50px; cursor: pointer; color: white;"
-          onclick="openNav()"
-          >&#9776;
-        </span>
+      <div class="headerElement l">
+        <span id="menu-btn">&#9776; </span>
       </div>
-      <div class="headerElement r" style="background-color: #aaa;">
+      <div class="headerElement r">
         <h1>COVID-19 AGENT-BASED SIMULATION MODEL</h1>
       </div>
     </div>
 
     <div id="myNav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
+      <a href="javascript:void(0)" id="closebtn">&times;</a>
       <div id="sliderDIV">
         <h2>Parameters</h2>
 
@@ -91,7 +85,10 @@
               id="InfectionRadiusRedFactor"
             />
             <div class="outputContainer">
-              <output id="InfectionRadiusRedFactorOut" for="InfectionRadiusRedFactor">
+              <output
+                id="InfectionRadiusRedFactorOut"
+                for="InfectionRadiusRedFactor"
+              >
                 3
               </output>
             </div>
@@ -173,21 +170,6 @@
               >
             </div>
           </div>
-          <!-- <div class="col-sm">
-            <p>Size of agents</p>
-            <input
-              type="range"
-              min="0"
-              max="10"
-              value="1.5"
-              step="0.1"
-              class="slider"
-              id="agentRadius"
-            />
-            <div class="outputContainer">
-              <output id="agentRadiusOut" for="agentRadius">2</output>
-            </div>
-          </div> -->
 
           <div class="row">
             <div class="col-sm">
@@ -397,7 +379,7 @@
         <button class="accordion">Presets</button>
         <div class="panel">
           <div class="preset-panel">
-            <div class="custom-select" style="width: 250px;">
+            <div class="custom-select">
               <select id="preset-list"> </select>
             </div>
 
@@ -419,30 +401,20 @@
     </div>
 
     <script>
-      function openNav() {
-        document.getElementById('myNav').style.width = '45%';
-      }
+      // var acc = document.getElementsByClassName('accordion');
+      // var i;
 
-      function closeNav() {
-        document.getElementById('myNav').style.width = '0%';
-      }
-    </script>
-
-    <script>
-      var acc = document.getElementsByClassName('accordion');
-      var i;
-
-      for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener('click', function () {
-          this.classList.toggle('active');
-          var panel = this.nextElementSibling;
-          if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-          } else {
-            panel.style.maxHeight = panel.scrollHeight + 'px';
-          }
-        });
-      }
+      // for (i = 0; i < acc.length; i++) {
+      //   acc[i].addEventListener('click', function () {
+      //     this.classList.toggle('active');
+      //     var panel = this.nextElementSibling;
+      //     if (panel.style.maxHeight) {
+      //       panel.style.maxHeight = null;
+      //     } else {
+      //       panel.style.maxHeight = panel.scrollHeight + 'px';
+      //     }
+      //   });
+      // }
     </script>
 
     <main id="main">
@@ -476,7 +448,7 @@
             <h3>Dead</h3>
             <p id="s5"></p>
           </div>
-          <div class="stat" id="icuDIV" style="background-color: green">
+          <div class="stat" id="icuDIV">
             <h3>In ICU</h3>
             <p id="s6"></p>
           </div>

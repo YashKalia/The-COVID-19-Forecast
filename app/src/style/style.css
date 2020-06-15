@@ -15,11 +15,13 @@ body {
 }
 
 .l {
+  background-color: #bbb;
   padding-left: 2%;
   width: 6%;
 }
 
 .r {
+  background-color: #aaa;
   width: 90%;
   padding-left: 2%;
 }
@@ -137,7 +139,7 @@ button {
   transition: 0.3s;
 }
 
-.sidenav .closebtn {
+.sidenav #closebtn {
   position: absolute;
   top: 0;
   right: 25px;
@@ -267,13 +269,24 @@ h3 {
 .preset-panel {
   flex-direction: row;
 }
-#totalICU{
-  position:relative;
-  top:-34px;
-  left:20px;
+#totalICU {
+  position: relative;
+  top: -34px;
+  left: 20px;
 }
 
-#icuDIV{
-  width:100px;
-  height:80.52px;
+#icuDIV {
+  background-color: lightgreen;
+  width: 100px;
+  height: 80.52px;
+}
+
+#menu-btn {
+  font-size: 50px;
+  cursor: pointer;
+  color: white;
+}
+
+.custom-select {
+  width: 250px;
 }
