@@ -10,6 +10,13 @@ function closeNav() {
 
 document.getElementById('closebtn').addEventListener('click', closeNav);
 
+// window.addEventListener('resize', () => {
+//   if (window.innerWidth < 800) {
+//     console.log('Here');
+//     window.resizeTo(800, window.innerHeight);
+//   }
+// });
+
 // [...document.getElementsByClassName('accordion')].forEach((item) =>
 //   item.addEventListener('click', function () {
 //     this.classList.toggle('active');

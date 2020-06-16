@@ -58,7 +58,6 @@ button {
   width: 600px;
   height: 600px;
   position: relative;
-
 }
 /* Styling the canvas which overlaps the model canvas so that borders computed in Model.js constructor can be added on top of the communities.  */
 #BorderCanvas {
@@ -290,4 +289,12 @@ h3 {
 
 .custom-select {
   width: 250px;
+}
+
+@media all and (max-width: 800px) {
+  #main {
+    flex-direction: column;
+    align-items: center;
+    min-width: 0px;
+  }
 }
