@@ -58,8 +58,8 @@ button {
   width: 600px;
   height: 600px;
   position: relative;
-}
 
+}
 /* Styling the canvas which overlaps the model canvas so that borders computed in Model.js constructor can be added on top of the communities.  */
 #BorderCanvas {
   position: absolute;
@@ -108,6 +108,7 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  min-width: 1400px;
 }
 
 #left-panel {
