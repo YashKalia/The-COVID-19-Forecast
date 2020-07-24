@@ -1,4 +1,6 @@
 # The COVID-19 Forecast
+[Demo](https://covid-model.netlify.app/)
+
 
 Currently the COVID-19 virus is affecting billions of people around the world. From our own quarantine, we, five students studying at the TU Delft in the Netherlands, have worked with the Delft Bioinformatics Lab to develop an agent-based predictive model that can estimate the situation in the Netherlands, ultimately serving as a tool that can aid in advising policy decisions and educate the public on the parameters which affect the spread of the virus.
 
